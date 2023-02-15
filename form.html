@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <style>
+
+        body{
+          
+          font-family: oswald;
+          background: #778899;
+          color: #ffffff;  
+          
+        }
+        
+        body > input{
+          
+          margin-top:-15px;
+            
+        }
+        
+        .frm{
+          
+          width: 300;
+          height: auto;
+          box-sizing: border-box;
+          border: 0px solid;
+          border-radius: 5px;
+          background: white;
+          margin-right: 900px;
+          color: black;
+          padding-top:;
+          padding: 10px;
+          
+        }
+        
+        #response1, #response2{
+            
+            color: red;
+            
+        }
+        
+        #response3{
+            
+            color: green;
+            
+        }
+        
+    </style>
+    
+    <script language="javascript" type="text/javascript">
+        
+        function verify() {  
+            
+            var pw = document.getElementById("pswrd").value;
+            var check = document.getElementById("birthday").value;
+            
+            var response1 = document.getElementById("response1");
+            var response2 = document.getElementById("response2");
+            var response3 = document.getElementById("response3");
+            
+            check = check.split("-")
+            
+            var yr = check[0];
+            var age = 2023 - yr;
+            
+            if(pw.length < 8) {  
+                
+                response1.innerHTML = "Password length must be at least 8 characters";  
+                return false;  
+                
+            }
+            
+            if(age < 21){
+                
+                response2.innerHTML = "Minors are not allowed!";
+                return false;
+                
+            }
+            
+            if(pw.length > 8 && age > 21){
+                
+                response3.innerHTML = "Hooray! Your account has been successfully created."
+                
+            }
+            
+        }  
+        
+        
+    </script>
+    
+</head>
+
+<body>
+
+  <div class= "frm">
+  <br>
+    <h2>Registration Form</h2>
+
+    <form>
+	
+	<p>First Name:</p>
+    <input type="text" id = "inputbox"><br>
+	
+	<p>Last Name:</p>
+    <input type="text" id = "inputbox"><br>
+	
+	<p>Nickname:</p>
+	<input type="text" id = "inputbox"><br>
+	
+	<p>Email:</p>
+	<input type="text" id = "inputbox"><br>
+	
+	<p>Password</p>
+	<input type="password" id = "pswrd"><br>
+    
+    <p>birthday:</p>
+    <input type="date" id="birthday" name="birthday">
+    
+    </form>
+  
+    <p>Address</p>
+    <textarea rows="10" cols="30" style = "margin-top: -15px;"></textarea><br>
+    
+    <input type="button" value="SUBMIT" onclick="verify()" style = "background-color: GREEN; color: white; border:0; padding:5;"> <input type="reset" value="RESET" style = "background-color: red; color: white; border:0; padding:5; margin-top: 10px;"><br><br>
+
+    <p id="response1"></p>
+    <p id="response2"></p>
+    <p id="response3"></p>
+
+  </div>
+
+
+
+</body>
+
+</html>
+
